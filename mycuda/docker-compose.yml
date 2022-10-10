@@ -1,0 +1,30 @@
+# version: '3' <- docker compose v2 では非推奨
+services:
+  df:
+    build:
+      context: .
+      dockerfile: ./set/Dockerfile
+    volumes: 
+      - type: volume
+        source: <volume name>
+        target: /home
+        volume:
+           nocopy: true
+      - type: bind
+        source: <directory>
+        target: /workspace
+    ports:
+      - "<host port>:<container port>"
+      - "<host ssh port>:<container ssh port>"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: tail -f /dev/null
+
+volumes:
+  dfset:
+    external: true

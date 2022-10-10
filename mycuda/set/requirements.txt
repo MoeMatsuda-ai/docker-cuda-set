@@ -1,0 +1,12 @@
+# pip でのインストール
+jupyter
+jupyterlab
+scipy
+numpy
+pandas
+matplotlib
+scikit-learn
+opencv-python
+tensorflow-gpu
+torch
+torchvision
